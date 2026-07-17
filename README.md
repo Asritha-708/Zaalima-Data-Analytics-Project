@@ -19,3 +19,7 @@
 
 ### Project Goal
 Predict customer churn and estimate Customer Lifetime Value (LTV) to help businesses retain customers.
+
+## Learning Progress
+
+- Practiced Git on July 17, 2026.
