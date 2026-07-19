@@ -28,3 +28,8 @@ df = df.drop_duplicates()
 
 print("\nShape After Removing Duplicates:")
 print(df.shape)
+
+# Save cleaned dataset
+df.to_csv("data/cleaned/cleaned_telco_churn.csv", index=False)
+
+print("\nCleaned dataset saved successfully!")
