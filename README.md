@@ -23,3 +23,10 @@ Predict customer churn and estimate Customer Lifetime Value (LTV) to help busine
 ## Learning Progress
 
 - Practiced Git on July 17, 2026.
+### Day 5
+
+- Performed initial Exploratory Data Analysis (EDA)
+- Checked dataset dimensions
+- Verified data types
+- Analyzed missing values
+- Generated descriptive statistics
