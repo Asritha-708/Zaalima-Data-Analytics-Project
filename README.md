@@ -30,3 +30,11 @@ Predict customer churn and estimate Customer Lifetime Value (LTV) to help busine
 - Verified data types
 - Analyzed missing values
 - Generated descriptive statistics
+### Day 6
+- Performed Exploratory Data Analysis (EDA)
+- Created Monthly Charges distribution histogram
+- Visualized Churn distribution
+- Analyzed Contract Type vs Churn
+- Analyzed Gender vs Churn
+- Analyzed Internet Service vs Churn
+- Saved visualization plots in reports folder
