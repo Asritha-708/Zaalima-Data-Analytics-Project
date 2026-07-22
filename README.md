@@ -38,3 +38,8 @@ Predict customer churn and estimate Customer Lifetime Value (LTV) to help busine
 - Analyzed Gender vs Churn
 - Analyzed Internet Service vs Churn
 - Saved visualization plots in reports folder
+### Day 7
+- Converted TotalCharges to numeric
+- Filled missing values
+- Encoded Gender and Churn columns
+- Saved cleaned dataset for machine learning
