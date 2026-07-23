@@ -43,3 +43,7 @@ Predict customer churn and estimate Customer Lifetime Value (LTV) to help busine
 - Filled missing values
 - Encoded Gender and Churn columns
 - Saved cleaned dataset for machine learning
+### Day 8
+- Performed correlation analysis.
+- Generated correlation heatmap.
+- Analyzed relationships between tenure, monthly charges, total charges, and churn.
