@@ -47,3 +47,9 @@ Predict customer churn and estimate Customer Lifetime Value (LTV) to help busine
 - Performed correlation analysis.
 - Generated correlation heatmap.
 - Analyzed relationships between tenure, monthly charges, total charges, and churn.
+## Model Explainability
+
+The project uses SHAP to explain feature importance.
+
+Output:
+reports/shap_summary.png
