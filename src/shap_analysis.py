@@ -31,3 +31,7 @@ print("Step 7")
 shap.summary_plot(shap_values[1], X_sample)
 
 print("Finished")
+shap.summary_plot(shap_values[1], X_sample, show=False)
+plt.tight_layout()
+plt.savefig("reports/shap_summary.png")
+plt.show()
