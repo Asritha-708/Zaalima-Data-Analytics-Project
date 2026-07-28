@@ -3,10 +3,10 @@ numpy
 matplotlib
 seaborn
 scikit-learn
-sqlalchemy
-psycopg2-binary
 xgboost
 shap
+joblib
 fastapi
 uvicorn
 jupyter
+notebook
