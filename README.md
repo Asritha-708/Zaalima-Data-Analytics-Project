@@ -1,4 +1,3 @@
-# Zaalima-Data-Analytics-Project
 # Customer Churn Prediction & Lifetime Value (LTV) Engine
 
 ## Project Overview
@@ -303,14 +302,37 @@ Possible improvements include:
 
 # Results
 
-- Successfully cleaned and preprocessed the dataset.
-- Performed exploratory data analysis.
-- Built multiple machine learning models.
-- Compared model performance.
-- Identified Logistic Regression as the best-performing model.
-- Generated SHAP explainability plots.
-- Built an LTV prediction model.
-- Saved trained models for future deployment.
+The machine learning models were evaluated using Accuracy, Precision, Recall, and F1 Score.
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| Logistic Regression | 80.91% | 67.44% | 54.28% | 60.15% |
+| Random Forest | 79.21% | 64.31% | 48.66% | 55.40% |
+| XGBoost | 77.71% | 59.32% | 51.07% | 54.89% |
+
+---
+
+## Churn Distribution
+
+![Churn Distribution](reports/churn_distribution.png)
+
+---
+
+## Correlation Heatmap
+
+![Correlation Heatmap](reports/correlation_heatmap.png)
+
+---
+
+## SHAP Summary Plot
+
+![SHAP Summary](reports/shap_summary.png)
+
+---
+
+## Logistic Regression Confusion Matrix
+
+![Logistic Regression Confusion Matrix](reports/logistic_regression_confusion_matrix.png)
 
 ---
 
