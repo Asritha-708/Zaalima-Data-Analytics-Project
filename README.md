@@ -285,19 +285,18 @@ The developed system helps telecommunication companies to:
 
 ---
 
-# Future Enhancements
+## Project Workflow
 
-Possible improvements include:
-
-- Deploy the model using FastAPI.
-- Build an interactive Streamlit dashboard.
-- Integrate real-time customer prediction.
-- Use larger telecom datasets.
-- Improve model performance through hyperparameter tuning.
-- Add deep learning models.
-- Connect with cloud platforms such as AWS or Azure.
-- Automate model retraining using MLOps pipelines.
-
+1. Data Collection
+2. Data Cleaning
+3. Exploratory Data Analysis (EDA)
+4. Feature Engineering
+5. Model Training
+6. Model Evaluation
+7. Customer LTV Prediction
+8. FastAPI Development
+9. Dashboard Development
+10. Docker Deployment
 ---
 
 # Results
