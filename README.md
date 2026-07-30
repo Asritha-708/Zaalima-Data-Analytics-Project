@@ -285,18 +285,7 @@ The developed system helps telecommunication companies to:
 
 ---
 
-# Future Enhancements
-
-Possible improvements include:
-
-- Deploy the model using FastAPI.
-- Build an interactive Streamlit dashboard.
-- Integrate real-time customer prediction.
-- Use larger telecom datasets.
-- Improve model performance through hyperparameter tuning.
-- Add deep learning models.
-- Connect with cloud platforms such as AWS or Azure.
-- Automate model retraining using MLOps pipelines.
+# 
 
 ---
 
@@ -335,7 +324,15 @@ The machine learning models were evaluated using Accuracy, Precision, Recall, an
 ![Logistic Regression Confusion Matrix](reports/logistic_regression_confusion_matrix.png)
 
 ---
+Business Outcome
 
+This project helps businesses
+
+- Reduce customer churn
+- Improve customer retention
+- Identify high-value customers
+- Improve marketing strategies
+- Increase customer lifetime revenue
 # Contributors
 
 **Asritha Buddi**
