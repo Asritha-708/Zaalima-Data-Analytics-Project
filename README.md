@@ -270,6 +270,8 @@ This helps businesses:
 - Improve customer retention strategies.
 - Increase long-term profitability.
 
+- 
+
 ---
 
 # Business Impact
@@ -333,6 +335,44 @@ This project helps businesses
 - Identify high-value customers
 - Improve marketing strategies
 - Increase customer lifetime revenue
+
+- ## Power BI Dashboard
+
+The dashboard provides insights into customer churn by visualizing:
+
+- Total Customers
+- Churned Customers
+- Churn Rate
+- Customer Distribution
+- Monthly Charges Analysis
+- Tenure Analysis
+- Contract Type
+- Payment Method
+- Internet Service
+- Interactive Filters (Slicers)
+
+### Dashboard Status
+🚧 In Progress
+## Power BI Dashboard
+
+The project includes an interactive Power BI dashboard that provides:
+
+- Total Customers
+- Churned Customers
+- Active Customers
+- Churn Rate
+- Average Monthly Charges
+- Churn by Contract Type
+- Churn by Internet Service
+- Churn by Payment Method
+- Interactive Filters (Slicers)
+
+Upcoming:
+- KPI Cards
+- Churn Prediction Summary
+- Executive Dashboard
+
+- 
 # Contributors
 
 **Asritha Buddi**
