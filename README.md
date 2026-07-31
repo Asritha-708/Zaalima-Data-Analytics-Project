@@ -353,6 +353,19 @@ The dashboard provides insights into customer churn by visualizing:
 
 ### Dashboard Status
 🚧 In Progress
+## Power BI Dashboard
+
+The project includes an interactive Power BI dashboard that provides:
+
+- Total Customers
+- Churned Customers
+- Active Customers
+- Churn Rate
+- Average Monthly Charges
+- Churn by Contract Type
+- Churn by Internet Service
+- Churn by Payment Method
+- Interactive Filters (Slicers)
 
 Upcoming:
 - KPI Cards
