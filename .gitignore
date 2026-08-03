@@ -1,5 +1,7 @@
-__pycache__/ 
-*.pyc 
-*.pyo 
-*.db 
-.ipynb_checkpoints/ 
+__pycache__/
+*.pyc
+*.pyo
+*.db
+.ipynb_checkpoints/
+.vscode/
+venv/
