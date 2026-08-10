@@ -1,17 +1,29 @@
 import pandas as pd
+import os
+from urllib.parse import quote_plus
 from sqlalchemy import create_engine
 
-# Load the dataset
-df = pd.read_csv(
-    r"C:\Users\buddh\Documents\Zaalima-Data-Analytics-Project\data\raw\WA_Fn-UseC_-Telco-Customer-Churn.csv"
-)
+DB_USER = os.getenv("DB_USER", "postgres")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_NAME = os.getenv("DB_NAME", "telco_db")
 
-# Connect to PostgreSQL
+encoded_password = quote_plus(DB_PASSWORD)
+
 engine = create_engine(
-    "postgresql+psycopg2://postgres:Ashritha@02@localhost:5432/telco_db"
+    f"postgresql+psycopg2://{DB_USER}:{encoded_password}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
 
-# Upload data
+# Load CSV data
+df = pd.read_csv(
+    "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+)
+
+print("CSV loaded successfully!")
+print("Rows:", len(df))
+
+# Upload data to PostgreSQL
 df.to_sql(
     "telco_customers",
     engine,
