@@ -2,7 +2,7 @@
 
 An end-to-end machine learning and data analytics project for predicting customer churn, estimating Customer Lifetime Value (LTV), explaining model predictions using SHAP, storing customer data in PostgreSQL, and visualizing business insights through Power BI.
 
----
+
 
 ## 📌 Table of Contents
 
