@@ -1,350 +1,583 @@
-# Customer Churn Prediction & Lifetime Value (LTV) Engine
+# 📊 Customer Churn Prediction & Customer Lifetime Value Analytics
 
-## Project Overview
-
-Customer churn is one of the biggest challenges faced by telecommunication companies. Losing existing customers directly affects business revenue and customer satisfaction. This project develops a machine learning solution to predict customer churn and estimate Customer Lifetime Value (LTV), helping businesses identify customers who are likely to leave and estimate their future value.
-
-The project uses the Telco Customer Churn dataset and applies data preprocessing, feature engineering, machine learning models, explainability techniques, and model evaluation to build an intelligent customer analytics system.
+An end-to-end machine learning and data analytics project for predicting customer churn, estimating Customer Lifetime Value (LTV), explaining model predictions using SHAP, storing customer data in PostgreSQL, and visualizing business insights through Power BI.
 
 ---
 
-## Objectives
+## 📌 Table of Contents
 
-- Predict whether a customer is likely to churn.
-- Estimate Customer Lifetime Value (LTV).
-- Compare multiple machine learning models.
-- Identify important factors affecting customer churn.
-- Improve business decision-making using predictive analytics.
+- [Project Overview](#-project-overview)
+- [Problem Statement](#-problem-statement)
+- [Objectives](#-objectives)
+- [Key Features](#-key-features)
+- [Dataset](#-dataset)
+- [Dataset Features](#-dataset-features)
+- [Project Workflow](#-project-workflow)
+- [Project Architecture](#-project-architecture)
+- [Technologies Used](#-technologies-used)
+- [Project Structure](#-project-structure)
+- [Data Preprocessing](#-data-preprocessing)
+- [Exploratory Data Analysis](#-exploratory-data-analysis)
+- [Feature Engineering](#-feature-engineering)
+- [Machine Learning Models](#-machine-learning-models)
+- [Model Evaluation](#-model-evaluation)
+- [Best Performing Model](#-best-performing-model)
+- [SHAP Explainability](#-shap-explainability)
+- [Customer Lifetime Value](#-customer-lifetime-value)
+- [PostgreSQL Database](#-postgresql-database)
+- [Power BI Dashboard](#-power-bi-dashboard)
+- [FastAPI Application](#-fastapi-application)
+- [Installation](#-installation)
+- [Running the Project](#-running-the-project)
+- [API Endpoints](#-api-endpoints)
+- [Reports and Visualizations](#-reports-and-visualizations)
+- [Business Insights](#-business-insights)
+- [Business Impact](#-business-impact)
+- [Future Enhancements](#-future-enhancements)
+- [Limitations](#-limitations)
+- [Contributors](#-contributors)
+- [License](#-license)
+- [Conclusion](#-conclusion)
 
 ---
 
-## Dataset Description
+# 📌 Project Overview
 
-**Dataset:** Telco Customer Churn Dataset
+Customer churn is a major challenge for telecommunication companies because losing existing customers can directly affect revenue and business growth.
+
+This project develops an end-to-end **Customer Churn Prediction and Customer Lifetime Value Analytics system** using machine learning and data analytics techniques.
+
+The system analyzes customer information such as:
+
+- Customer demographics
+- Contract type
+- Tenure
+- Internet services
+- Payment methods
+- Monthly charges
+- Total charges
+- Customer service usage
+
+Machine learning models are used to predict whether a customer is likely to churn.
+
+The project also estimates Customer Lifetime Value (LTV), uses SHAP for model explainability, stores customer data in PostgreSQL, and provides an interactive Power BI dashboard for business analysis.
+
+---
+
+# 🎯 Problem Statement
+
+Telecommunication companies collect large amounts of customer data, but identifying customers who are likely to leave can be difficult.
+
+Traditional analysis may show what happened in the past, but machine learning can help predict potential churn based on customer characteristics.
+
+The problem addressed by this project is:
+
+> **How can customer data be analyzed using machine learning to predict customer churn, estimate customer value, understand the factors influencing churn, and support better customer retention decisions?**
+
+---
+
+# 🎯 Objectives
+
+The main objectives of the project are:
+
+1. Predict whether a customer is likely to churn.
+2. Identify the important factors influencing customer churn.
+3. Compare multiple machine learning algorithms.
+4. Select the best-performing churn prediction model.
+5. Explain model predictions using SHAP.
+6. Estimate Customer Lifetime Value (LTV).
+7. Store customer information in PostgreSQL.
+8. Build an interactive Power BI dashboard.
+9. Provide a FastAPI-based prediction service.
+10. Support data-driven customer retention strategies.
+
+---
+
+# ⭐ Key Features
+
+### 🔹 Customer Churn Prediction
+
+Predicts whether a customer is likely to leave the telecom company.
+
+### 🔹 Multiple Machine Learning Models
+
+The project compares:
+
+- Logistic Regression
+- Random Forest
+- XGBoost
+
+### 🔹 Explainable AI
+
+SHAP is used to understand which features influence churn predictions.
+
+### 🔹 Customer Lifetime Value
+
+Estimates the potential long-term value of customers.
+
+### 🔹 PostgreSQL Integration
+
+Customer data can be imported into PostgreSQL for structured storage and analysis.
+
+### 🔹 Power BI Dashboard
+
+Provides interactive business visualizations and KPI metrics.
+
+### 🔹 FastAPI Prediction API
+
+Provides REST API endpoints for customer churn prediction.
+
+---
+
+# 📊 Dataset
+
+The project uses the **Telco Customer Churn Dataset**.
 
 The dataset contains customer information collected from a telecommunications company.
 
-### Features include:
+The dataset contains approximately:
 
-- Customer ID
-- Gender
-- Senior Citizen
-- Partner
-- Dependents
-- Tenure
-- Phone Service
-- Multiple Lines
-- Internet Service
-- Online Security
-- Online Backup
-- Device Protection
-- Tech Support
-- Streaming TV
-- Streaming Movies
-- Contract Type
-- Paperless Billing
-- Payment Method
-- Monthly Charges
-- Total Charges
-- Churn (Target Variable)
+- **7,043 customers**
+- **21 original features**
 
-### Additional Features Created
+The target variable is:
 
-- AvgMonthlySpend
-- IsLongTerm
-- Lifetime Value (LTV)
+```text
+Churn
+where :
+Yes = Customer churned
+No  = Customer did not churn
 
----
+#project workflow
+                Raw Customer Dataset
+                        │
+                        ▼
+                Data Cleaning
+                        │
+                        ▼
+             Exploratory Data Analysis
+                        │
+                        ▼
+              Feature Engineering
+                        │
+                        ▼
+              Data Preprocessing
+                        │
+                        ▼
+                Train/Test Split
+                        │
+                        ▼
+             Machine Learning Models
+              ┌─────────┼─────────┐
+              ▼         ▼         ▼
+          Logistic   Random     XGBoost
+         Regression  Forest
+              └─────────┼─────────┘
+                        ▼
+                Model Evaluation
+                        │
+                        ▼
+                 Best Model
+                        │
+             ┌──────────┴──────────┐
+             ▼                     ▼
+       SHAP Explainability       LTV
+             │                     │
+             └──────────┬──────────┘
+                        ▼
+                 PostgreSQL
+                        │
+                        ▼
+                  Power BI
+                        │
+                        ▼
+                  FastAPI API
 
-# Technologies Used
+#project Architecture
 
-## Programming Language
+Data Source
+    ↓
+Data Cleaning
+    ↓
+EDA
+    ↓
+Feature Engineering
+    ↓
+Machine Learning
+    ↓
+Model Evaluation
+    ↓
+Explainable AI
+    ↓
+PostgreSQL
+    ↓
+Power BI
+    ↓
+FastAPI
 
-- Python 3.7
+#Technologies used
+1.Programming Language
+Python
+2.Data Analysis
+Pandas
+NumPy
+3.Data Visualization
+Matplotlib
+Seaborn
+Power BI
+4.Machine Learning
+Scikit-learn
+XGBoost
+5.Explainable AI
+SHAP
+6.Database
+PostgreSQL
+SQLAlchemy
+Psycopg2
+7.API
+FastAPI
+Uvicorn
+Pydantic
+8.Model Saving
+Joblib
+9.Development Tools
+Visual Studio Code
+Jupyter Notebook
+Git
+GitHub
 
-## Libraries
 
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- XGBoost
-- SHAP
-- Joblib
-
-## Development Environment
-
-- Visual Studio Code
-- Jupyter Notebook
-- Git
-- GitHub
-
----
-
-# Project Folder Structure
-
-```
-Zaalima-Data-Analytics-Project
+#project structure
+Zaalima-Data-Analytics-Project/
 │
 ├── app.py
+├── Dockerfile
 ├── README.md
 ├── requirements.txt
+├── .gitignore
 │
-├── data
-│   ├── raw
-│   └── cleaned
+├── data/
+│   ├── raw/
+│   │   └── WA_Fn-UseC_-Telco-Customer-Churn.csv
+│   │
+│   └── cleaned/
+│       ├── cleaned_telco.csv
+│       └── encoded_telco.csv
 │
-├── models
+├── docs/
+│   ├── dashboard_setup.md
+│   ├── project_plan.md
+│   └── shap_analysis.md
+│
+├── models/
+│   ├── README.md
 │   ├── best_model.pkl
 │   └── ltv_model.pkl
 │
-├── notebooks
+├── notebooks/
 │   ├── 02_eda_visualization.ipynb
-│   └── customer_churn_prediction_final.ipynb
+│   └── customer_churn_prediction.ipynb
 │
-├── reports
+├── reports/
 │   ├── churn_distribution.png
+│   ├── contract_vs_churn.png
 │   ├── correlation_heatmap.png
+│   ├── customer churn dashboard.pbix
+│   ├── gender_vs_churn.png
+│   ├── internet_vs_churn.png
+│   ├── logistic_regression.png
 │   ├── logistic_regression_confusion_matrix.png
-│   ├── random_forest_confusion_matrix.png
-│   ├── xgboost_confusion_matrix.png
-│   ├── feature_importance.png
-│   ├── shap_summary.png
 │   ├── model_comparison.csv
-│   └── model_comparison.png
+│   ├── monthly_charges.png
+│   ├── project_architecture.png
+│   ├── random_forest_confusion_matrix.png
+│   ├── shap_summary.png
+│   └── xgboost.png
 │
-└── src
-```
+└── src/
+    ├── data_cleaning.py
+    ├── data_summary.py
+    ├── eda_part1.py
+    ├── eda_part2.py
+    ├── feature_engineering.py
+    ├── import_to_postgres.py
+    ├── load_data.py
+    └── shap_analysis.py
 
----
 
-# Installation Steps
+#Exploratry Data Analysis
 
-## Step 1
+Exploratory Data Analysis (EDA) is performed to understand customer behavior and identify patterns related to churn.
 
-Clone the repository
+The analysis includes:
 
-```bash
-git clone https://github.com/Asritha-708/Zaalima-Data-Analytics-Project.git
-```
+Churn distribution
+Contract vs churn
+Gender vs churn
+Internet service vs churn
+Monthly charges analysis
+Correlation analysis
 
----
+These visualizations help identify patterns that may contribute to customer churn.
 
-## Step 2
+#Feature Engineering
 
-Go to the project folder
+Feature engineering is used to create useful information from existing customer data.
 
-```bash
-cd Zaalima-Data-Analytics-Project
-```
+Examples include:
 
----
+Average Monthly Spend
 
-## Step 3
+Helps understand customer spending behavior.
 
-Install dependencies
+Long-Term Customer Indicator
 
-```bash
-pip install -r requirements.txt
-```
+Identifies customers with longer relationships with the company.
 
----
+Customer Lifetime Value
 
-## Step 4
+Combines customer financial and tenure information to estimate customer value.
 
-Launch Jupyter Notebook
+Feature engineering helps convert raw customer information into meaningful features for machine learning and business analysis.
 
-```bash
-jupyter notebook
-```
+#Machinelearning Models
 
-Open
+Three machine learning classification algorithms are used.
 
-```
-customer_churn_prediction_final.ipynb
-```
+1. Logistic Regression
 
----
+Logistic Regression is used as a baseline classification algorithm.
 
-# Data Preprocessing
+It predicts the probability that a customer belongs to the churn class.
 
-The following preprocessing steps were performed:
+Advantages:
 
-- Removed unnecessary columns
-- Checked missing values
-- Converted categorical variables into numerical values
-- Feature Engineering
-- One-Hot Encoding
-- Train-Test Split
-- Data Validation
+Simple
+Fast
+Easy to interpret
+Good baseline model
+2. Random Forest
 
----
+Random Forest is an ensemble machine learning algorithm that combines multiple decision trees.
 
-# Exploratory Data Analysis (EDA)
+Advantages:
 
-The following visualizations were created:
+Handles nonlinear relationships
+Works with many features
+Provides feature importance
+More robust than a single decision tree
+3. XGBoost
 
-- Customer Churn Distribution
-- Contract Type Distribution
-- Monthly Charges Distribution
-- Correlation Heatmap
-- Feature Importance Plot
-- SHAP Summary Plot
+XGBoost is a gradient boosting algorithm that builds trees sequentially to improve prediction performance.
 
-These visualizations help understand customer behavior and important features affecting churn.
+Advantages:
 
----
+Powerful classification algorithm
+Handles complex relationships
+Good performance on structured data
+Supports feature importance
 
-# Machine Learning Models
+#Model evaluation
 
-The following models were implemented:
+The models are evaluated using:
 
-## Logistic Regression
-
-A baseline classification model used for customer churn prediction.
-
-## Random Forest
-
-An ensemble learning model using multiple decision trees.
-
-## XGBoost
-
-A gradient boosting algorithm providing high predictive performance.
-
----
+Accuracy
+Precision
+Recall
+F1 Score
 
 # Model Performance
+Model	|Accuracy	|Precision	|Recall   |F1 Score
+Logistic Regression   |	80.91%	|68.31%|	52.01%|	59.06%
+Random Forest      |	79.56%	|66.04%	|46.92%	|54.86%
+XGBoost	     |78.85%|	62.38%|	50.67%|	55.92%
+Interpretation
 
-| Model | Accuracy | Precision | Recall | F1 Score |
-|-------|----------|-----------|--------|----------|
-| Logistic Regression | 80.91% | 67.44% | 54.28% | 60.15% |
-| Random Forest | 79.21% | 64.31% | 48.66% | 55.40% |
-| XGBoost | 77.71% | 59.32% | 51.07% | 54.89% |
+Based on the current evaluation:
 
-### Best Model
-
-**Logistic Regression** achieved the highest overall performance for this dataset with an accuracy of **80.91%**.
-
----
-
-# Feature Importance
-
-Random Forest Feature Importance was used to identify the most influential variables affecting customer churn.
-
-Important features include:
-
-- Contract Type
-- Tenure
-- Monthly Charges
-- Total Charges
-- Internet Service
-- Payment Method
-
-These features contribute significantly to predicting customer churn.
-
----
-
-# SHAP Explainability
-
-SHAP (SHapley Additive exPlanations) was used to explain model predictions.
-
-Benefits of SHAP:
-
-- Improves model transparency.
-- Shows feature contribution for each prediction.
-- Helps businesses understand why a customer is predicted to churn.
-- Supports explainable Artificial Intelligence (XAI).
-
----
-
-# Lifetime Value (LTV) Prediction
-
-Customer Lifetime Value (LTV) was calculated using customer tenure and monthly charges.
-
-A regression model was developed to estimate future customer value.
-
-This helps businesses:
-
-- Identify high-value customers.
-- Improve customer retention strategies.
-- Increase long-term profitability.
-
-- 
-
----
-
-# Business Impact
-
-The developed system helps telecommunication companies to:
-
-- Predict customer churn before customers leave.
-- Understand important churn factors.
-- Estimate customer lifetime value.
-- Improve customer retention.
-- Reduce revenue loss.
-- Support data-driven business decisions.
-
----
-
-# 
-
----
-
-# Results
-
-The machine learning models were evaluated using Accuracy, Precision, Recall, and F1 Score.
-
-| Model | Accuracy | Precision | Recall | F1 Score |
-|-------|----------|-----------|--------|----------|
-| Logistic Regression | 80.91% | 67.44% | 54.28% | 60.15% |
-| Random Forest | 79.21% | 64.31% | 48.66% | 55.40% |
-| XGBoost | 77.71% | 59.32% | 51.07% | 54.89% |
-
----
-
-## Churn Distribution
-
-![Churn Distribution](reports/churn_distribution.png)
-
----
-
-## Correlation Heatmap
-
-![Correlation Heatmap](reports/correlation_heatmap.png)
-
----
-
-## SHAP Summary Plot
-
-![SHAP Summary](reports/shap_summary.png)
-
----
-
-## Logistic Regression Confusion Matrix
-
-![Logistic Regression Confusion Matrix](reports/logistic_regression_confusion_matrix.png)
-
----
-Business Outcome
-
-This project helps businesses
-
-- Reduce customer churn
-- Improve customer retention
-- Identify high-value customers
-- Improve marketing strategies
-- Increase customer lifetime revenue
+Logistic Regression achieved the highest accuracy.
+Logistic Regression also achieved the highest F1 score.
+Random Forest performed second in accuracy.
+XGBoost provided competitive recall but lower overall accuracy.
 
 
-- 
-# Contributors
+#Best performing Model
 
-**Asritha Buddi**
+The current best-performing model is:
+Logistic Regression
+
+Performance:
+
+Metric	                  Score
+Accuracy               	80.91%
+Precision	            68.31%
+Recall	                52.01%
+F1 Score            	59.06%
+
+Therefore, Logistic Regression is selected as the best-performing churn prediction model among the tested models.
+
+#confusion Matrix
+Confusion matrices are used to understand the classification results.
+
+They show:
+
+True Positives
+True Negatives
+False Positives
+False Negatives
+
+The project contains confusion matrix visualizations for the machine learning models.
+
+#SHAP Analysis
+
+SHAP is used to explain the machine learning predictions.
+
+Instead of only predicting whether a customer will churn, SHAP helps us understand why the model made that prediction.
+
+It helps identify the features that have the greatest influence on customer churn.
+
+The SHAP results are available in the reports/ folder.
+
+# Customer Lifetime Value
+
+Customer Lifetime Value (LTV) represents the estimated value a customer can provide to the company during their relationship.
+
+LTV analysis helps identify:
+
+Valuable customers.
+Long-term customers.
+Customers who may need special retention strategies.
+
+The LTV model is stored in the models/ folder.
+
+##PostgreSQL Database
+
+PostgreSQL is used to store the customer data in a structured database.
+
+The data import script is:
+
+src/import_to_postgres.py
+
+The customer data is imported into the:
+
+telco_customers
+
+table.
+
+To import the data:
+
+python src/import_to_postgres.py
+ ## Power BI Dashboard
+
+An interactive Power BI dashboard was created to understand customer churn.
+
+The dashboard includes:
+
+Total Customers.
+Churn Customers.
+Active Customers.
+Churn Rate.
+Average Monthly Charges.
+Churn by Contract.
+Churn by Gender.
+Churn by Internet Service.
+Dashboard File
+reports/customer churn dashboard.pbix
+
+The .pbix file should be opened using Microsoft Power BI Desktop.
+
+## Dashboard Preview
+
+Add your final dashboard screenshot here.
+
+Example:
+
+![Customer Churn Dashboard](reports/dashboard_screenshot.png)
+## FastAPI
+
+FastAPI is used to provide a simple API for customer churn prediction.
+
+The main application file is:
+
+app.py
+
+Run the API using:
+
+uvicorn app:app --reload
+
+Then open:
+
+http://127.0.0.1:8000
+
+Swagger API documentation:
+
+http://127.0.0.1:8000/docs
+
+## Main API Endpoints
+Method	Endpoint	Purpose
+GET	/	Check API status
+POST	/predict	Predict churn for one customer
+POST	/predict_batch	Predict churn for multiple customers
+ ##How to Run the Project
+1. Clone the Repository
+git clone https://github.com/Asritha-708/Zaalima-Data-Analytics-Project.git
+2. Open the Project
+cd Zaalima-Data-Analytics-Project
+3. Install Required Packages
+pip install -r requirements.txt
+4. Run the Data Processing Scripts
+
+Example:
+
+python src/data_cleaning.py
+python src/feature_engineering.py
+5. Run the FastAPI Application
+uvicorn app:app --reload
+#Key Business Insights
+
+The project helps businesses understand which types of customers are more likely to churn.
+
+The analysis can be used to:
+
+Identify high-risk customers.
+Understand customer behavior.
+Improve customer retention.
+Identify valuable customers.
+Create targeted offers.
+Reduce potential revenue loss.
+## Future Enhancements
+
+Future improvements can include:
+
+Hyperparameter tuning.
+Improving churn recall.
+Real-time churn prediction.
+Cloud deployment.
+Automatic model retraining.
+Customer segmentation.
+Real-time dashboard updates.
+Automated alerts for high-risk customers.
+
+# Limitations
+The model is trained using the available Telco customer dataset.
+Predictions are not guaranteed to be correct for every customer.
+Model performance may change with new data.
+LTV is an estimated value.
+Further model tuning could improve performance.
+
+# Conclusion
+
+This project provides an end-to-end solution for customer churn analysis.
+
+It combines data analytics, machine learning, SHAP explainability, Customer Lifetime Value, PostgreSQL, Power BI, and FastAPI.
+
+The system can help businesses identify customers who are likely to churn, understand the reasons behind churn, and make better customer retention decisions.
+
+#3 Author
+
+Asritha Buddi
 
 B.Tech – Computer Science and Engineering
-
-CMR Institute of Technology
 
 GitHub:
 https://github.com/Asritha-708
@@ -352,16 +585,8 @@ https://github.com/Asritha-708
 LinkedIn:
 https://www.linkedin.com/in/asritha-buddhi-97616b292
 
----
+## Project Repository
 
-# License
+GitHub:
 
-This project is developed for educational and internship purposes.
-
----
-
-## Thank You
-
-Thank you for visiting this project.
-
-If you found this project useful, consider giving it a ⭐ on GitHub.
+https://github.com/Asritha-708/Zaalima-Data-Analytics-Project
