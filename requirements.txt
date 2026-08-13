@@ -1,4 +1,3 @@
-
 fastapi
 uvicorn
 pandas
@@ -7,3 +6,8 @@ scikit-learn
 joblib
 xgboost
 pydantic
+sqlalchemy
+psycopg2-binary
+shap
+matplotlib
+seaborn
