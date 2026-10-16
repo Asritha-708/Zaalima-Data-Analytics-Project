@@ -575,12 +575,7 @@ The system can help businesses identify customers who are likely to churn, under
 
 #3 Author
 
-Asritha Buddi
-
-B.Tech – Computer Science and Engineering
-
-GitHub:
-https://github.com/Asritha-708
+Asritha Buddi & Ligi Mathew
 
 LinkedIn:
 https://www.linkedin.com/in/asritha-buddhi-97616b292
@@ -590,3 +585,24 @@ https://www.linkedin.com/in/asritha-buddhi-97616b292
 GitHub:
 
 https://github.com/Asritha-708/Zaalima-Data-Analytics-Project
+## My Individual Contribution
+
+This was a collaborative data analytics project focused on
+customer churn prediction and Customer Lifetime Value (CLV)
+analysis in the telecommunications industry.
+
+My main responsibilities included:
+
+- Working on predictive modelling using Logistic Regression
+  and XGBoost.
+- Evaluating model performance using appropriate metrics.
+- Contributing to the API-related implementation to make
+  model predictions accessible.
+- Collaborating with team members to integrate the project
+  components.
+
+Through this project, I gained practical exposure to Python,
+machine learning, model evaluation, and teamwork. The analysis
+demonstrates how customer data can help businesses identify
+potential churn and improve customer retention strategies.
+
